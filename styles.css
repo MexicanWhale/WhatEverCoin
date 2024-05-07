@@ -1,0 +1,335 @@
+/* General styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #028181;
+    color: white;
+    font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    font-size: 25px;
+    z-index: 10;
+    line-height: 40px;
+    z-index: 1; /* Logo appears behind the icons */
+}
+
+
+.desktop {
+    position: absolute;
+    top: 10px; /* Adjust so icons start below the logo text */
+    left: 10px; /* Left alignment */
+    margin: 0;
+    padding: 0;
+    z-index: 2; /* Icons appear above the logo */
+}
+
+.icon {
+    display: block; /* Stack icons vertically */
+    margin: 10px 0; /* Spacing between icons */
+    text-align: center; /* Align text to the left */
+}
+.icon img {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+}
+
+.icon span {
+    display: block;
+    margin-top: 5px;
+}
+
+/* Taskbar styles */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #C0C0C0;
+    display: flex;
+    align-items: center;
+}
+
+.start-button {
+    height: 32px;
+    padding: 5px 10px;
+    font-family: 'MS Sans Serif', Geneva, sans-serif;
+    font-weight: bold;
+    background-color: #00008B;
+    color: white;
+    border: none;
+}
+
+.start-menu {
+    display: none;
+    position: fixed;
+    bottom: 32px;
+    width: 130px;
+    background-color: #C0C0C0;
+    border: 1px solid #000;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 3; /* Logo appears behind the icons */
+}
+
+.modal-content {
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    color: #000;
+}
+
+/* Window styles */
+.window {
+    background: #c0c0c0;
+    padding: 10px;
+}
+
+.title-bar {
+    background: #000080;
+    color: white;
+    padding: 5px;
+}
+
+.title-bar-text {
+    display: inline-block;
+}
+
+.title-bar-controls {
+    display: inline-block;
+    float: right;
+}
+
+.close-button {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #c0c0c0;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    border: 1px solid #000;
+    cursor: pointer;
+    box-shadow: inset -1px -1px #949393, inset 1px 1px #ffffff;
+    position: relative;
+}
+
+.close-button:hover {
+    background: #949494;
+}
+
+.close-button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.window-body {
+    background: white;
+    padding: 10px;
+}
+
+/* Icon link styles */
+.icon a {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* The link will inherit the color from its parent */
+}
+
+.icon a:hover, .icon a:focus {
+    text-decoration: none; /* Removes underline on hover/focus */
+}
+
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: gold;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: explode 5s cubic-bezier(0.3, 0.7, 0.4, 1) forwards; /* Extend animation to 5 seconds */
+}
+
+@keyframes explode {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(20);
+        background: rgba(255, 169, 0, 0);
+    }
+}
+
+
+/* Style for tweet entries */
+.tweet {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: left; /* Center items horizontally */
+    margin-bottom: 15px; /* Space between tweet entries */
+}
+
+.tweet-image {
+    width: 250px; /* Adjust width as needed */
+    height: auto; /* Adjust height as needed */
+    object-fit: cover; /* Cover the area without stretching the image */
+    border: 1px solid #ccc; /* Optional: add border around the image */
+    margin-bottom: 10px; /* Space between the image and the text */
+}
+
+.tweet-text {
+    font-size: 1.5em;
+    text-align: left; /* Center the text */
+    margin-bottom: 10px; /* Space after the tweet text before the vote buttons */
+}
+
+.tweet-votes {
+    display: flex;
+    justify-content: left; /* Center vote buttons and counts */
+    align-items: center; /* Align vote buttons and counts vertically */
+}
+
+.vote-button {
+    margin: 0 5px; /* Adds 5px margin to the left and right of each button */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em; /* Larger touch targets for thumbs */
+}
+
+.vote-count {
+    margin: 0 10px; /* Adds 10px margin to the left and right of each vote count */
+}
+
+/* Style for the tweet header, which contains user and time info */
+.tweet-header {
+    text-align: left; /* Aligns text to the left */
+    width: 100%;
+    padding: 0 10px; /* Adjust the padding as needed */
+    margin-bottom: 5px; /* Space above the tweet image */
+}
+
+.tweet-user {
+    font-weight: bold; /* Make the user name bold */
+    font-size: 1.5em;
+}
+
+.tweet-time {
+    display: block; /* Force onto a new line */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-style: italic; /* Italicize the time */
+    opacity: 0.7; /* Make the time less prominent */
+}
+
+
+
+
+/* Mobile Styles */
+@media (max-width: 768px) { /* Adjusts styles for screens smaller than 768px */
+    .logo {
+        position: absolute;
+        top: 10px;
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%);
+        z-index: 1; /* Make sure logo is behind icons */
+    }
+
+    .desktop {
+        display: flex; /* Use flexbox to center children */
+        flex-direction: column; /* Stack children vertically */
+        align-items: center; /* Center children horizontally */
+        justify-content: flex-start; /* Align children at the start of the cross axis */
+        top: 60px; /* Start below the logo text */
+        left: 0; /* Start from the far left */
+        width: 100%; /* Take up full width to center content */
+        padding: 0; /* Remove padding */
+        margin: 0; /* Remove margin */
+        position: absolute; /* Positioning context */
+        height: calc(100% - 60px); /* Adjust height to push content below logo */
+    }
+
+    .icon {
+        margin: 20px 0; /* Space between icons */
+        width: 150px; /* Icon container width */
+        height: 150px; /* Icon container height */
+    }
+
+    .icon img {
+        width: 100%; /* Icon size, should be 150px due to the container size */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .icon span {
+        font-size: 14px; /* Larger font size for better readability */
+    }
+
+    /* Modal and Window adjustments */
+    .modal-content {
+        width: 90%; /* Change to a percentage of screen width */
+        margin: 10% auto;
+        padding: 10px; /* Adjust padding if necessary */
+    }
+
+    .window {
+        padding: 5px; /* Reduce padding to save space */
+    }
+
+    .window-body {
+        padding: 5px; /* Reduce padding to save space */
+    }
+
+    /* Adjust form elements within the modal */
+    .window-body form {
+        margin: 0; /* Remove any additional margins */
+    }
+
+    .window-body textarea,
+    .window-body input[type="file"],
+    .window-body button {
+        width: calc(100% - 10px); /* Adjust width to fit the modal, accounting for padding */
+        font-size: 14px; /* Optionally, increase font size for better readability */
+    }
+
+    /* If the title bar is too large, adjust its size as well */
+    .title-bar-text {
+        font-size: 14px; /* Adjust the font size if necessary */
+    }
+
+}

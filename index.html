@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatEverCoin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="logo">
+        ¯\_(ツ)_/¯ <br>
+        WhatEverCoin
+    </div>
+    <div class="desktop">
+        <!-- Icons -->
+        <div class="icon">
+            <a href="https://forum.whatevercoin.org/" target="_blank">
+                <img src="images/my_computer.png" alt="WhatEver Forum">
+                <span>WhatEver Forum</span>
+            </a>
+        </div>
+        <div class="icon" onclick="openWindow('Submit Tweet')">
+            <img src="images/Notepad16.png" alt="Submit Tweet">
+            <span>Submit Tweet</span>
+        </div>
+        <div class="icon" onclick="openWindow('Browse Tweets')">
+            <img src="images/my_documents.png" alt="Browse Tweets">
+            <span>Browse Tweets</span>
+        </div>
+        <div class="icon">
+            <a href="https://twitter.com/what_ever_coin" target="_blank">
+                <img src="images/X.COM_1.png" alt="X.com">
+                <span>X.com</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://t.me/whatevercoin_org" target="_blank">
+                <img src="images/chat.png" alt="Chat">
+                </span>Chat</span>
+            </a>
+        </div>
+        <div class="icon" onclick="openWindow('Hall of Fame')">
+            <img src="images/address_book_pad_users.png" alt="Hall of Fame">
+            <span>Hall of Fame</span>
+        </div>
+        <!-- More icons can be added here -->
+    </div>
+    <div class="taskbar">
+        <button class="start-button" onclick="toggleStartMenu()">
+            <img src="images/start.png" alt="Start" class="start-img">
+            <span class="start-text">Donate</span>
+        </button>        
+        <div id="start-menu" class="start-menu">
+            <div class="icon" onclick="openWindow('Donate')">
+                <img src="images/giphy.gif" alt="makeitrain">
+                <span>Donate</span>
+            </div>
+        </div>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="window">
+                <div class="title-bar">
+                    <div class="title-bar-text">My Documents</div>
+                    <div class="title-bar-controls">
+                        <button aria-label="Close" class="close-button" onclick="closeModal()">X</button>
+                    </div>
+                </div>
+                <div class="window-body">
+                    <!-- Submit Tweet Form -->
+                    <div id="submitTweetForm" style="display: none;">
+                        <form id="tweetForm">
+                            <div>
+                                <label for="tweetText">Write WhatEver you want here:</label><br>
+                                <textarea id="tweetText" name="tweetText" rows="4" cols="50"></textarea>
+                            </div>
+                            <div>
+                                <label for="tweetImage">Upload Tweet Image (Max 1MB):</label><br>
+                                <input type="file" id="tweetImage" name="tweetImage" accept="image/*">
+                                <!-- Image preview container -->
+                                <div id="imagePreview" style="margin-top: 10px;"></div>
+                            </div>
+                            <div>
+                                <button type="submit">Submit This Tweet</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Donation Section -->
+                    <div id="donateSection" style="display: none;">
+                        <p>If you want to donate to the project's development so that we can hire external developers, you can do this to:</p>
+                        <p><strong>EVM (ETH, BASE, BSC, ARB, BLAST)</strong></p>
+                        <p>0x48e498022Ab896D96FB5142D701f240Ef1bf7490</p>
+                        <font color="red">Do not send money to any other address, the address should show whatevercoin.eth!</font><br>
+                        <p>None of the funds will ever be used by the founders; they contribute 100% for free.</p>
+                    </div>
+                     <!-- Hall of Fame -->
+                    <div id="HallofFameSection" style="display: none;">
+                        <p>Hall of Fame</p>
+                        <p>@Mexican_Whale - Creator - Core-Contributor (Website, Form, Community Tweet App </p>
+                    </div>
+
+                    <!-- Browse Tweets Section -->
+                    <div id="browseTweetsSection" style="display: none;">
+                        <div id="tweetsContainer"></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
