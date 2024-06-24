@@ -25,24 +25,31 @@ body, html {
     z-index: 1; /* Logo appears behind the icons */
 }
 
-
 .desktop {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: flex-start;
     position: absolute;
-    top: 10px; /* Adjust so icons start below the logo text */
-    left: 10px; /* Left alignment */
+    top: 10px;
+    left: 10px;
     margin: 0;
     padding: 0;
-    z-index: 2; /* Icons appear above the logo */
+    z-index: 2;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    overflow: auto;
 }
 
 .icon {
-    display: block; /* Stack icons vertically */
-    margin: 10px 0; /* Spacing between icons */
-    text-align: center; /* Align text to the left */
+    margin: 5px;
+    text-align: center;
+    display: inline-block; /* Ensure inline-block display */
+    width: 100px; /* Ensure consistent width */
+    height: auto; /* Maintain aspect ratio */
 }
+
 .icon img {
-    display: block;
-    margin: 0 auto;
     width: 100px;
     height: 100px;
 }
@@ -51,6 +58,8 @@ body, html {
     display: block;
     margin-top: 5px;
 }
+
+
 
 /* Taskbar styles */
 .taskbar {
@@ -80,6 +89,7 @@ body, html {
     width: 130px;
     background-color: #C0C0C0;
     border: 1px solid #000;
+    z-index: 10; /* Ensure start menu appears above other elements */
 }
 
 /* Modal styles */
@@ -120,8 +130,8 @@ body, html {
 }
 
 .title-bar-controls {
-    display: inline-block;
-    float: right;
+    display: block; /* Ensures proper block display */
+    float: right;   /* Float the controls to the right */
 }
 
 .close-button {
@@ -197,7 +207,6 @@ body, html {
     }
 }
 
-
 /* Style for tweet entries */
 .tweet {
     display: flex;
@@ -258,9 +267,6 @@ body, html {
     font-style: italic; /* Italicize the time */
     opacity: 0.7; /* Make the time less prominent */
 }
-
-
-
 
 /* Mobile Styles */
 @media (max-width: 768px) { /* Adjusts styles for screens smaller than 768px */
@@ -332,5 +338,4 @@ body, html {
     .title-bar-text {
         font-size: 14px; /* Adjust the font size if necessary */
     }
-
 }
