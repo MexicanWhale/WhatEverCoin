@@ -60,6 +60,7 @@ body, html {
     background-color: #C0C0C0;
     display: flex;
     align-items: center;
+    z-index: 5; /* Ensure taskbar is above other elements */
 }
 
 .start-button {
